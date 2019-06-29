@@ -1,0 +1,12 @@
+.card {
+	margin: 0 auto;
+	float: none; 
+	margin-bottom: auto;
+	margin-top: 100px;
+}
+
+.alert {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
