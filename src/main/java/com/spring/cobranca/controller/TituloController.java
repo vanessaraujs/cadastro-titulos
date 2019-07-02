@@ -17,13 +17,21 @@ import com.spring.cobranca.repository.Titulos;
 @Controller
 @RequestMapping("/titulos")
 public class TituloController {
-	
+
 	@Autowired
 	private Titulos titulos;
-	
+
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
 		ModelAndView mv = new ModelAndView("CadastroTitulo");
+		return mv;
+	}
+
+	@RequestMapping("/pesquisa")
+	public ModelAndView pesquisar() {
+		List<Titulo> todosTitulos = titulos.findAll();
+		ModelAndView mv = new ModelAndView("PesquisaTitulo");
+		mv.addObject("titulos", todosTitulos);
 		return mv;
 	}
 
@@ -34,9 +42,9 @@ public class TituloController {
 		mv.addObject("mensagem", "Cadastro realizado com sucesso!");
 		return mv;
 	}
-	
+
 	@ModelAttribute
-	public List<StatusTitulo> statusTitulo(){
+	public List<StatusTitulo> statusTitulo() {
 		return Arrays.asList(StatusTitulo.values());
 	}
 }

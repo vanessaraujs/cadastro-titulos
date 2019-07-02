@@ -1,4 +1,4 @@
-.card {
+.card-cadastro {
 	margin: 0 auto;
 	float: none; 
 	margin-bottom: auto;
@@ -9,4 +9,12 @@
 	margin-top: 10px;
 	margin-left: 10px;
 	margin-right: 10px;
+}
+
+.card-pesquisa {
+	margin: 0 auto;
+	float: none; 
+	margin-bottom: auto;
+	margin-top: 70px;
+	width: 90em;
 }
