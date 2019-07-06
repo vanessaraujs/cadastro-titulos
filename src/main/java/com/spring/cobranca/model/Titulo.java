@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
@@ -26,12 +28,19 @@ public class Titulo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotEmpty(message = "A descrição é obrigatória.")
 	private String descricao;
+	
+	@NotNull(message="A data é obrigatória.")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(value = TemporalType.DATE)
 	private Date dataVencimento;
+	
+	@NotNull(message="O valor é obrigatório.")
 	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valor;
+	
 	@Enumerated(EnumType.STRING)
 	private StatusTitulo status;
 
